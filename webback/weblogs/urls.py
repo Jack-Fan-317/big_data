@@ -19,7 +19,8 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('index.urls','index'),namespace='index')),
+    # path('', include(('index.urls','index'),namespace='index')),
     # path(r'', TemplateView.as_view(template_name="index.html")),
     path('chat/', include('chat.urls')),
+    path('city/', include('index.urls')),
 ]

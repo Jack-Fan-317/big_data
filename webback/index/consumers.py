@@ -1,46 +1,47 @@
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 import json
+from .models import City
 
 class ChatConsumer(WebsocketConsumer):
+    # 信息连接时
     def connect(self):
-        self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = 'chat_%s' % self.room_name
-
-        # Join room group
-        async_to_sync(self.channel_layer.group_add)(
-            self.room_group_name,
-            self.channel_name
-        )
-
         self.accept()
 
+    # 断开连接时
     def disconnect(self, close_code):
-        # Leave room group
-        async_to_sync(self.channel_layer.group_discard)(
-            self.room_group_name,
-            self.channel_name
-        )
+        pass
 
-    # Receive message from WebSocket
+    # 信息接收时
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        message = text_data_json['message']
+        print(text_data_json)
+        # message = text_data_json['message']
 
-        # Send message to room group
-        async_to_sync(self.channel_layer.group_send)(
-            self.room_group_name,
-            {
-                'type': 'chat_message',
-                'message': message
-            }
-        )
-
-    # Receive message from room group
-    def chat_message(self, event):
-        message = event['message']
+        message = chat_code_to_msg(text_data_json['msg'])
 
         # Send message to WebSocket
         self.send(text_data=json.dumps({
             'message': message
         }))
+
+def chat_code_to_msg(msg):
+    city_all_1 = City.objects.all()
+    list_city_1 = []
+    for i in city_all_1:
+        list_c = [i.city_name, i.data]
+        list_city_1.append(list_c)
+        list_c = []
+    res = {
+        "data":{
+            "header": ["城市","数量"],
+            "data":list_city_1,
+            "index": True,
+            "columnWidth": [50],
+            "align": ['center'],
+            "carousel": 'page'
+        }
+    }
+    return res
+    
+                

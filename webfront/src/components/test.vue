@@ -43,10 +43,10 @@ export default {
         }
     },
     created() {
-        this.$axios.get('/api/city1/').then(response => {
+        this.$axios.get('/api/city/city1/').then(response => {
             this.config1 = response.data.data
         })
-        this.$axios.get('/api/city2/').then(response => {
+        this.$axios.get('/api/city/city2/').then(response => {
             this.config2 = response.data.data
         })
     },

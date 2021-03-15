@@ -1,18 +1,45 @@
 <template>
     <div>
-        <div id="input-send">
-            <textarea placeholder="请输入内容" v-model="sendmsg"></textarea>
-            <button>发送信息</button>
-        </div>
+        <dv-full-screen-container>
+            <dv-border-box-11 title="大数据日志分析系统"></dv-border-box-11>
+        </dv-full-screen-container>
+        <div class="col-md-6">
+                <div>
+                    <h2 id="origin_title">数据展示</h2>
+                </div>
+                <!-- <div class="origin_chart"> -->
+                    <div style="height:400px;">
+                        <div style="height: 100%; width: 100%;background: rgb(41,44,51);">
+                            <!-- 轮播图 -->
+                            <dv-scroll-board :config="config1" style="width:100%;height:100%;"/>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+        <!-- 数据处理 -->
+            <div class="col-md-6">
+                <div>
+                    <h2 id="process_title">前100名热榜</h2>
+                </div>
+                <!-- <div class="origin_chart"> -->
+                    <div style="height:400px;">
+                        <div style="height: 100%; width: 100%;background: rgb(41,44,51);">
+                            <!-- 轮播图 -->
+                            <dv-scroll-ranking-board :config="config2" style="width:100%;height:100%;"/>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
     </div>
 </template>
 
 <script type="text/javascript">
 export default {
-    name: "test",
+    name: "wstest",
     data() {
         return {
-            sendmsg:"",
+            config1: {},
+            config2: {},
         }
     },
     mounted() {
@@ -20,7 +47,7 @@ export default {
     },
     methods: {
         initWebSocket() {
-            let wsuri = 'ws://127.0.0.1:8000/chat/lobby';
+            let wsuri = 'ws://127.0.0.1:8000/city/city1';
             // 连接服务器
             this.ws = new WebSocket(wsuri);
             // 指定事件回调
@@ -32,25 +59,25 @@ export default {
         // 发送消息
         sendWebSocketMsg(msg) {
             this.ws.send(JSON.stringify(msg))
-            // this.ws.send(msg)
         },
 
         websocketOnMessage(e) {
             //获取websocket推送的数据
             // let msg = e.data
             // console.log(msg)
-            console.log(e.data)
+            // console.log(e.data)
             let message = JSON.parse(e.data)
-            if (message.code == 100) {
-                console.log("fjk")
-            }
+            // if (message.code == 100) {
+            //     console.log("fjk")
+            // }
+            // console.log(message)
         },
 
         websocketOnOpen(e) {
             console.log(e)
             let enterroom = {
                 code:100,
-                msg:'hahaha'
+                msg:'fjk'
             }
             this.sendWebSocketMsg(enterroom)
             // console.log('连接 websocket 成功')
@@ -68,14 +95,14 @@ export default {
         },
     },
 
-    // created() {
-    //     this.$axios.get('/api/city1/').then(response => {
-    //         this.config1 = response.data.data
-    //     })
-    //     this.$axios.get('/api/city2/').then(response => {
-    //         this.config2 = response.data.data
-    //     })
-    // },
+    created() {
+        this.$axios.get('/api/city/city1/').then(response => {
+            this.config1 = response.data.data
+        })
+        this.$axios.get('/api/city/city2/').then(response => {
+            this.config2 = response.data.data
+        })
+    },
 };
 </script>
 
