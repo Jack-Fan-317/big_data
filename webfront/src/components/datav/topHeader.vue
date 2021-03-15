@@ -23,18 +23,15 @@ export default {
     flex-shrink: 0;
     border: 1px solid red;
 }
-
 .header-center-decoration {
     width: 40%;
     height: 80px;
     margin-top: 30px;
 }
-
 .header-left-decoration, .header-right-decoration {
     width: 25%;
     height: 70px;
 }
-
 .center-title {
     position: absolute;
     font-size: 30px;

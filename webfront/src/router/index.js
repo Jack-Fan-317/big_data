@@ -8,7 +8,7 @@ import Router from 'vue-router'
 // import LeftChart from '@/components/LeftChart'
 // import LeftChart2 from '@/components/LeftChart2'
 // import MiddleChart1 from '@/components/MiddleChart1'
-import index from '@/components/index'
+import index from '@/components/datav/index'
 
 Vue.use(Router)
 
