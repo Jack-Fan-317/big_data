@@ -1,10 +1,10 @@
 <template>
-  <div id="water-level-chart">
+  <div id="weblogs-total">
     <div class="water-level-chart-title">日志累计采集数量情况</div>
 
     <div class="water-level-chart-details">
       <p>累计采集</p>
-      <span>1,666,777</span>
+      <span>{{data}}</span>
       <p>条数据</p>
     </div>
 
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'WaterLevelChart',
+  name: 'weblogsTotal',
   data () {
     return {
       config: {
@@ -25,14 +25,20 @@ export default {
         waveHeight: 25,
         waveNum: 3,
         waveOpacity: 0.6
-      }
+      },
+      data: ''
     }
-  }
+  },
+  created() {
+      this.$axios.get('/api/weblogsTotal/').then(response => {
+          this.data = response.data.data
+      })
+  },
 }
 </script>
 
 <style>
-#water-level-chart {
+#weblogs-total {
   width: 20%;
   box-sizing: border-box;
   margin-left: 20px;
@@ -40,7 +46,6 @@ export default {
   border-top: 2px solid rgba(1, 153, 209, .5);
   display: flex;
   flex-direction: column;
-  border: 1px solid white;
 }
 .water-level-chart-title {
   font-weight: bold;
@@ -49,14 +54,12 @@ export default {
   align-items: center;
   font-size: 20px;
   justify-content: center;
-  border: 1px solid red;
 }
 .water-level-chart-details {
   height: 15%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  border: 1px solid green;
 }
 .water-level-chart-details p {
   font-size: 13px;
@@ -66,7 +69,6 @@ export default {
   font-weight: bold;
   color: #58a1ff;
   margin: 0 5px;
-  /* margin-bottom: 10px; */
   text-align: center;
 
 }
@@ -77,11 +79,13 @@ export default {
   align-items: center;
 }
 .dv-water-pond-level {
-  max-width: 90%;
+  max-width: 70%;
   width: 200px;
   height: 200px;
   border: 10px solid #19c3eb;
   border-radius: 50%;
+  padding-right: 7px;
+  padding-bottom: 7px;
 }
 .dv-water-pond-level  ellipse {
   stroke: transparent !important;

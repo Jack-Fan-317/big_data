@@ -1,5 +1,5 @@
 <template>
-  <div id="topic-board">
+  <div id="weblogs-topic">
     <div class="ranking-board-title">话题TOP50</div>
     <dv-scroll-ranking-board :config="config" />
   </div>
@@ -7,14 +7,14 @@
 
 <script>
 export default {
-  name: 'topicBoard',
+  name: 'weblogsTopic',
   data() {
         return {
             config: {},
         }
     },
     created() {
-        this.$axios.get('/api/webcount/').then(response => {
+        this.$axios.get('/api/weblogsTopic/').then(response => {
             this.config = response.data.data
         })
     },
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style>
-#topic-board {
+#weblogs-topic {
   width: 20%;
   box-shadow: 0 0 3px blue;
   display: flex;
@@ -31,7 +31,6 @@ export default {
   border-top: 2px solid rgba(1, 153, 209, .5);
   box-sizing: border-box;
   padding: 0px 30px;
-  border: 1px solid red;
 }
 .ranking-board-title {
   font-weight: bold;

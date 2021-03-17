@@ -2,18 +2,17 @@
     <div id="data-view">
         <dv-full-screen-container>
             <top-header />
-            <div class="main-content" style="border: 1px solid green;">
+            <div class="main-content">
                 <digital-flop />
-                <div class="block-left-right-content" style="border: 1px solid green;"><!-- 左边一列 -->
-                    <topic-board />
-                    <div class="block-top-bottom-content" style="border: 1px solid white;">
-                        <div class="block-top-content" style="border: 1px solid white;">
-                            <rose-chart />
-                            <!-- <weblog-count/> -->
-                            <water-level-chart />
-                            <wblogs-board />
+                <div class="block-left-right-content">
+                    <weblogs-topic />
+                    <div class="block-top-bottom-content">
+                        <div class="block-top-content">
+                            <time-distrib />
+                            <weblogs-total />
+                            <weblogs-show />
                         </div>
-                        <cards />
+                        <time-items />
                     </div>
                 </div>
             </div>
@@ -24,24 +23,23 @@
 <script>
 import topHeader from './topHeader'
 import digitalFlop from './digitalFlop'
-import topicBoard from './topicBoard'
-import roseChart from './roseChart'
-import waterLevelChart from './waterLevelChart'
-import wblogsBoard from './wblogsBoard'
-import cards from './cards'
-// import weblogCount from './weblogCount'
+import weblogsTopic from './weblogsTopic'
+import weblogsTotal from './weblogsTotal'
+import weblogsShow from './weblogsShow'
+import timeDistrib from './timeDistrib'
+import timeItems from './timeItems'
+
 
 export default {
     name: 'DataView',
     components: {
         topHeader,
         digitalFlop,
-        topicBoard,
-        roseChart,
-        waterLevelChart,
-        wblogsBoard,
-        cards,
-        // weblogCount
+        weblogsTopic,
+        weblogsTotal,
+        weblogsShow,
+        timeDistrib,
+        timeItems
     },
     data () {
         return {}

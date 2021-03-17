@@ -1,19 +1,19 @@
 <template>
-  <div id="weblogs-board">
+  <div id="weblogs-show">
     <dv-scroll-board :config="config" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'weblogsBoard',
+  name: 'weblogsShow',
   data() {
         return {
             config: {},
         }
     },
     created() {
-        this.$axios.get('/api/weblogs/').then(response => {
+        this.$axios.get('/api/weblogsShow/').then(response => {
             this.config = response.data.data
         })
     },
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style>
-#weblogs-board {
+#weblogs-show {
   width: 50%;
   box-sizing: border-box;
   margin-left: 20px;

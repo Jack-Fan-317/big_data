@@ -9,6 +9,7 @@ import Router from 'vue-router'
 // import LeftChart2 from '@/components/LeftChart2'
 // import MiddleChart1 from '@/components/MiddleChart1'
 import index from '@/components/datav/index'
+import test from '@/components/datav/test'
 
 Vue.use(Router)
 
@@ -29,19 +30,15 @@ export default new Router({
     //   name: 'wstest',
     //   component: wstest
     // },
-    // {
-    //   path: '/',
-    //   components: {
-    //       LeftChart,
-    //       LeftChart2_router:LeftChart2,
-    //       MiddleChart1_router:MiddleChart1,
-          
-    //   }
-    // }
     {
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test
     }
   ]
 })

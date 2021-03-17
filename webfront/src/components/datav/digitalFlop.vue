@@ -126,7 +126,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(6, 30, 93, 0.5);
-  border: 1px solid pink;
 }
 .dv-decoration-10 {
   position: absolute;
