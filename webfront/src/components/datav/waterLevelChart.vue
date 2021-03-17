@@ -1,9 +1,11 @@
 <template>
   <div id="water-level-chart">
-    <div class="water-level-chart-title">计划资金累计完成情况</div>
+    <div class="water-level-chart-title">日志累计采集数量情况</div>
 
     <div class="water-level-chart-details">
-      累计完成<span>235,680</span>元
+      <p>累计采集</p>
+      <span>1,666,777</span>
+      <p>条数据</p>
     </div>
 
     <div class="chart-container">
@@ -21,7 +23,8 @@ export default {
         data: [45],
         shape: 'round',
         waveHeight: 25,
-        waveNum: 2
+        waveNum: 3,
+        waveOpacity: 0.6
       }
     }
   }
@@ -37,6 +40,7 @@ export default {
   border-top: 2px solid rgba(1, 153, 209, .5);
   display: flex;
   flex-direction: column;
+  border: 1px solid white;
 }
 .water-level-chart-title {
   font-weight: bold;
@@ -45,20 +49,26 @@ export default {
   align-items: center;
   font-size: 20px;
   justify-content: center;
+  border: 1px solid red;
 }
 .water-level-chart-details {
   height: 15%;
   display: flex;
   justify-content: center;
-  font-size: 17px;
   align-items: flex-end;
+  border: 1px solid green;
+}
+.water-level-chart-details p {
+  font-size: 13px;
 }
 .water-level-chart-details span {
   font-size: 35px;
   font-weight: bold;
   color: #58a1ff;
   margin: 0 5px;
-  margin-bottom: -5px;
+  /* margin-bottom: 10px; */
+  text-align: center;
+
 }
 .chart-container {
   flex: 1;

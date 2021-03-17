@@ -33,9 +33,9 @@ export default {
 
       this.digitalFlopData = [
         {
-          title: '管养里程',
+          title: '总请求数量',
           number: {
-            number: [randomExtend(20000, 30000)],
+            number: [randomExtend(200000, 300000)],
             content: '{nt}',
             textAlign: 'right',
             style: {
@@ -43,12 +43,12 @@ export default {
               fontWeight: 'bold'
             }
           },
-          unit: '公里'
+          unit: '次'
         },
         {
-          title: '桥梁',
+          title: '有效请求数量',
           number: {
-            number: [randomExtend(20, 30)],
+            number: [randomExtend(190000, 200000)],
             content: '{nt}',
             textAlign: 'right',
             style: {
@@ -56,12 +56,12 @@ export default {
               fontWeight: 'bold'
             }
           },
-          unit: '座'
+          unit: '次'
         },
         {
-          title: '涵洞隧道',
+          title: '无效请求数量',
           number: {
-            number: [randomExtend(20, 30)],
+            number: [randomExtend(5000, 10000)],
             content: '{nt}',
             textAlign: 'right',
             style: {
@@ -69,38 +69,12 @@ export default {
               fontWeight: 'bold'
             }
           },
-          unit: '个'
+          unit: '次'
         },
         {
-          title: '匝道',
+          title: '日志文件大小',
           number: {
-            number: [randomExtend(10, 20)],
-            content: '{nt}',
-            textAlign: 'right',
-            style: {
-              fill: '#4d99fc',
-              fontWeight: 'bold'
-            }
-          },
-          unit: '个'
-        },
-        {
-          title: '隧道',
-          number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
-            style: {
-              fill: '#f46827',
-              fontWeight: 'bold'
-            }
-          },
-          unit: '个'
-        },
-        {
-          title: '服务区',
-          number: {
-            number: [randomExtend(5, 10)],
+            number: [randomExtend(144,180)],
             content: '{nt}',
             textAlign: 'right',
             style: {
@@ -108,38 +82,12 @@ export default {
               fontWeight: 'bold'
             }
           },
-          unit: '个'
+          unit: 'MB'
         },
         {
-          title: '收费站',
+          title: '累计流量',
           number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
-            style: {
-              fill: '#4d99fc',
-              fontWeight: 'bold'
-            }
-          },
-          unit: '个'
-        },
-        {
-          title: '超限站',
-          number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
-            style: {
-              fill: '#f46827',
-              fontWeight: 'bold'
-            }
-          },
-          unit: '个'
-        },
-        {
-          title: '停车区',
-          number: {
-            number: [randomExtend(5, 10)],
+            number: [randomExtend(5000, 10000)],
             content: '{nt}',
             textAlign: 'right',
             style: {
@@ -147,8 +95,8 @@ export default {
               fontWeight: 'bold'
             }
           },
-          unit: '个'
-        }
+          unit: ''
+        },
       ]
     },
     randomExtend (minNum, maxNum) {

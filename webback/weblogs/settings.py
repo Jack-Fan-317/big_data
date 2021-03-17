@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'corsheaders',  # 解决跨域问题
-    'chat'
+    'chat',
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -117,12 +118,20 @@ WSGI_APPLICATION = 'weblogs.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'big_data',
+    #     'USER': "root",
+    #     'PASSWORD': '990317',
+    #     'HOST': 'localhost',
+    #     'POST': '3306',
+    # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'big_data',
+        'NAME': 'fjk',
         'USER': "root",
         'PASSWORD': '990317',
-        'HOST': 'localhost',
+        'HOST': 'm1',
         'POST': '3306',
     }
 }

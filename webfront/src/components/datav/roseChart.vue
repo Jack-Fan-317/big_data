@@ -1,6 +1,6 @@
 <template>
   <div id="rose-chart">
-    <div class="rose-chart-title">累计计量资金分布</div>
+    <div class="rose-chart-title">累计web日志时间分布</div>
     <dv-charts :option="option" />
   </div>
 </template>
@@ -86,6 +86,7 @@ export default {
   font-size: 20px;
   display: flex;
   align-items: center;
+  border: 1px solid green;
 }
 .dv-charts-container {
   height: calc(100% - 50px);

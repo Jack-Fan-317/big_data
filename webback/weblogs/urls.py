@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include(('index.urls','index'),namespace='index')),
     # path(r'', TemplateView.as_view(template_name="index.html")),
-    path('chat/', include('chat.urls')),
-    path('city/', include('index.urls')),
+    # path('chat/', include('chat.urls')),
+    # path('city/', include('index.urls')),
+    path('', include(('myapp.urls','myapp'),namespace='myapp')),
 ]

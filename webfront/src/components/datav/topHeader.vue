@@ -21,7 +21,6 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
-    border: 1px solid red;
 }
 .header-center-decoration {
     width: 40%;

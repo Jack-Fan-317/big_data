@@ -12,15 +12,15 @@
       <dv-charts class="ring-charts" :option="card.ring" />
       <div class="card-footer">
         <div class="card-footer-item">
-          <div class="footer-title">累计金额</div>
+          <div class="footer-title">累计日志</div>
           <div class="footer-detail">
-            <dv-digital-flop :config="card.total" style="width:70%;height:35px;" />元
+            <dv-digital-flop :config="card.total" style="width:70%;height:35px;" />条
           </div>
         </div>
         <div class="card-footer-item">
-          <div class="footer-title">巡查病害</div>
+          <div class="footer-title">占比</div>
           <div class="footer-detail">
-            <dv-digital-flop :config="card.num" style="width:70%;height:35px;" />处
+            <dv-digital-flop :config="card.num" style="width:70%;height:35px;" />%
           </div>
         </div>
       </div>
@@ -40,8 +40,8 @@ export default {
     createData () {
       const { randomExtend } = this
 
-      this.cards = new Array(5).fill(0).map((foo, i) => ({
-        title: '测试路段' + (i + i),
+      this.cards = new Array(4).fill(0).map((foo, i) => ({
+        title: '时段:  '+6*i+':00 ~ '+(6*i+6)+ ':00',
         total: {
           number: [randomExtend(9000, 10000)],
           content: '{nt}',
@@ -69,7 +69,7 @@ export default {
               arcLineWidth: 13,
               radius: '80%',
               data: [
-                { name: '资金占比', value: randomExtend(40, 60) }
+                { name: '数量占比', value: randomExtend(40, 60) }
               ],
               axisLabel: {
                 show: false
@@ -87,7 +87,7 @@ export default {
               },
               details: {
                 show: true,
-                formatter: '资金占比{value}%',
+                formatter: '数量占比{value}%',
                 style: {
                   fill: '#1ed3e5',
                   fontSize: 20
@@ -122,6 +122,7 @@ export default {
   display: flex;
   justify-content: space-between;
   height: 45%;
+  border: 1px solid red;
 }
 .card-item {
   background-color: rgba(6, 30, 93, 0.5);

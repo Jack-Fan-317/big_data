@@ -5,12 +5,13 @@
             <div class="main-content" style="border: 1px solid green;">
                 <digital-flop />
                 <div class="block-left-right-content" style="border: 1px solid green;"><!-- 左边一列 -->
-                    <ranking-board />
+                    <topic-board />
                     <div class="block-top-bottom-content" style="border: 1px solid white;">
                         <div class="block-top-content" style="border: 1px solid white;">
                             <rose-chart />
+                            <!-- <weblog-count/> -->
                             <water-level-chart />
-                            <scroll-board />
+                            <wblogs-board />
                         </div>
                         <cards />
                     </div>
@@ -23,22 +24,24 @@
 <script>
 import topHeader from './topHeader'
 import digitalFlop from './digitalFlop'
-import rankingBoard from './rankingBoard'
+import topicBoard from './topicBoard'
 import roseChart from './roseChart'
 import waterLevelChart from './waterLevelChart'
-import scrollBoard from './scrollBoard'
+import wblogsBoard from './wblogsBoard'
 import cards from './cards'
+// import weblogCount from './weblogCount'
 
 export default {
     name: 'DataView',
     components: {
         topHeader,
         digitalFlop,
-        rankingBoard,
+        topicBoard,
         roseChart,
         waterLevelChart,
-        scrollBoard,
-        cards
+        wblogsBoard,
+        cards,
+        // weblogCount
     },
     data () {
         return {}
@@ -70,6 +73,7 @@ export default {
     flex: 1;
     display: flex;
     margin-top: 20px;
+    height: 600px;
 }
 .block-top-bottom-content {
     flex: 1;
